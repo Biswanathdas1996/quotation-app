@@ -96,7 +96,7 @@ const RightContent = ({
         </Stack>
       </Stack>
 
-      {owner !== account ? (
+      {/* {owner !== account ? (
         <div style={{ marginTop: "30px", marginBottom: "30px" }}></div>
       ) : (
         <div style={{ marginTop: "30px", marginBottom: "30px" }}>
@@ -106,7 +106,7 @@ const RightContent = ({
             fetchNftInfo={fetchNftInfo}
           />
         </div>
-      )}
+      )} */}
 
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={value}>

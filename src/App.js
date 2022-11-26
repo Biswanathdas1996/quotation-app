@@ -65,7 +65,7 @@ const App = () => {
   };
 
   console.log("----activeNetwork>", activeNetwork);
-  const navBarLessRoutes = ["/"];
+  const navBarLessRoutes = ["/home"];
   return (
     <ConfigContext.Provider value={config}>
       <CssBaseline />

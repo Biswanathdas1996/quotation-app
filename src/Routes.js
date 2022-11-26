@@ -14,8 +14,8 @@ class Routing extends React.Component {
   render() {
     return (
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/publishArt" element={<PublishArt />} />
+        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/" element={<PublishArt />} />
         <Route exact path="/nft-mint" element={<SingleNFT />} />
         <Route exact path="/details/:tokenId" element={<DetailsPage />} />
         <Route

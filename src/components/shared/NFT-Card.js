@@ -122,6 +122,26 @@ export default function NFTCard({ tokenId, reload = () => null }) {
                 </strong>
               </p>
             </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+              }}
+            >
+              <p>
+                <span
+                  className="text-secondary"
+                  style={{ fontSize: 10, color: "grey" }}
+                >
+                  Status:{" "}
+                </span>
+                <strong
+                  style={{ fontSize: 10, fontWeight: "bold", color: "#EC7063" }}
+                >
+                  {nftData?.status}
+                </strong>
+              </p>
+            </div>
           </CardContent>
           <CardActions>
             <Button

@@ -97,9 +97,17 @@ const Quote = ({ nftData, tokenId }) => {
         description: description,
         date: new Date(),
       });
+
+      const metaData = {
+        ...nftData,
+        status: `${nftData?.quotations?.length} Quotations Submitted`,
+      };
       let resultsSaveMetaData;
       try {
-        resultsSaveMetaData = await createAnduploadFileToIpfs(configs, nftData);
+        resultsSaveMetaData = await createAnduploadFileToIpfs(
+          configs,
+          metaData
+        );
       } catch (err) {
         alert("upload File To Ipfs Failed, please try again");
         console.error("upload File To Ipfs Failed", err);

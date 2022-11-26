@@ -71,7 +71,7 @@ const ProfilePage = () => {
                       }}
                     />
                     <Tab
-                      label="My Collections"
+                      label="My Contracts"
                       value="3"
                       sx={{
                         textTransform: "none",
@@ -79,16 +79,7 @@ const ProfilePage = () => {
                         color: "#000000",
                       }}
                     />
-                    <Tab
-                      label="My Favourites"
-                      value="4"
-                      sx={{
-                        textTransform: "none",
-                        fontWeight: "bold",
-                        color: "#000000",
-                      }}
-                      //   disabled
-                    />
+
                     <Tab
                       label="Document"
                       value="5"
@@ -112,10 +103,7 @@ const ProfilePage = () => {
                   {" "}
                   <MyCollections />
                 </TabPanel>
-                <TabPanel value="4">
-                  {" "}
-                  <MyFavorites />
-                </TabPanel>
+
                 <TabPanel value="5">
                   {" "}
                   <UserCertificate />

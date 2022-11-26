@@ -65,7 +65,7 @@ export default function LeftConrent({ nftData, tokenId, ContractAddress }) {
               margin: 30,
             }}
           >
-            Download Requirement
+            Download Contract
           </Button>
         </a>
       </center>

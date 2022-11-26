@@ -8,34 +8,16 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Button } from "@mui/material";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import GridViewIcon from "@mui/icons-material/GridView";
 import Link from "@material-ui/core/Link";
 import { useNavigate } from "react-router-dom";
-
 import PwcLogo from "../../assets/images/nft.png";
-
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-
-const pages = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "My profile",
-    href: "/profile",
-  },
-  {
-    label: "How it works",
-    href: "/HowItWorks",
-  },
-];
+import { _fetch } from "../../CONTRACT-ABI/connect";
 
 const Header = ({ icon, symbol }) => {
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -43,6 +25,22 @@ const Header = ({ icon, symbol }) => {
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   let history = useNavigate();
+
+  const pages = [
+    {
+      label: "Home",
+      href: "/",
+    },
+    {
+      label: "My profile",
+      href: "/profile",
+    },
+    {
+      label: "How it works",
+      href: "/HowItWorks",
+    },
+  ];
+
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -147,9 +145,6 @@ const Header = ({ icon, symbol }) => {
         <Link href="/">How It Works</Link>
       </MenuItem>
       <MenuItem>
-        <Link href="/publishArt">Create</Link>
-      </MenuItem>
-      <MenuItem>
         <p>Sign In</p>
       </MenuItem>
     </Menu>
@@ -175,19 +170,6 @@ const Header = ({ icon, symbol }) => {
           />
 
           {/* Explore menu list========================================= */}
-          <Button
-            endIcon={<ArrowDropDownIcon />}
-            size="medium"
-            edge="end"
-            aria-label="account of current user"
-            aria-controls={menuId}
-            aria-haspopup="true"
-            onClick={handleProfileMenuOpen}
-            color="inherit"
-            sx={{ color: "black", fontWeight: "bold", textTransform: "none" }}
-          >
-            Explore
-          </Button>
 
           {/* // Menu items-------------------------------------------- */}
           <Box
@@ -218,26 +200,6 @@ const Header = ({ icon, symbol }) => {
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Button
-              type="button"
-              variant="contained"
-              sx={{
-                marginRight: "20px",
-                textTransform: "none",
-              }}
-              onClick={() => history("/publishArt")}
-            >
-              Create
-            </Button>
-            <Button
-              disabled
-              aria-controls={menuId}
-              variant="outlined"
-              sx={{ textTransform: "none" }}
-            >
-              Sign In
-            </Button>
-
             <Stack direction="row" spacing={1} style={{ margin: 10 }}>
               <img
                 width="20px"

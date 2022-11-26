@@ -77,13 +77,13 @@ export default function Certificate({ tokenId, attributes }) {
               <Grid container spacing={2}>
                 <Grid item xs={12} md={12} sm={12} lg={12}>
                   <h3 style={{ fontWeight: "bold", textAlign: "center" }}>
-                    Ownership Certificate of Token #{tokenId}
+                    Ownership Certificate of Contract #{tokenId}
                   </h3>
                 </Grid>
                 <Grid item xs={12} md={12} sm={12} lg={12}>
                   <p style={{ marginTop: 20, textAlign: "left", fontSize: 12 }}>
                     This is to certify that the user {<b>{owner}</b>} owns the
-                    NFT Token #{tokenId} of contact address of{" "}
+                    Contract Token #{tokenId} of contact address of{" "}
                     <b>{getContractAddress()}</b>.
                   </p>
                 </Grid>
@@ -99,7 +99,7 @@ export default function Certificate({ tokenId, attributes }) {
                       marginBottom: 2,
                     }}
                   >
-                    NFT Details
+                    Contract Details
                   </Typography>
                   <Box
                     sx={{
