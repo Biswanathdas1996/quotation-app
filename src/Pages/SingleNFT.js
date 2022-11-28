@@ -221,7 +221,7 @@ const Mint = () => {
               <div style={{ margin: 20 }}>
                 <Card
                   style={{
-                    background: "#ffffff9e",
+                    background: "rgb(255 255 255 / 87%)",
                   }}
                 >
                   <Grid container>
@@ -231,7 +231,7 @@ const Mint = () => {
                           padding: "20px",
                         }}
                       >
-                        <h4>Create NFT</h4>
+                        <h4>Create New Contract</h4>
                         <Formik
                           initialValues={{
                             authorname: "",
@@ -251,28 +251,6 @@ const Mint = () => {
                           {({ touched, errors, isSubmitting, values }) => (
                             <Form>
                               <Grid container>
-                                {vendors && (
-                                  <Grid item lg={6} md={6} sm={12} xs={12}>
-                                    <div
-                                      className="form-group"
-                                      style={{ marginLeft: 10, marginTop: 10 }}
-                                    >
-                                      <label for="title" className="my-2">
-                                        Vendors{" "}
-                                        <span className="text-danger">*</span>
-                                      </label>
-                                      <Field
-                                        className="custom-select"
-                                        name="selectedVendors"
-                                        options={vendors}
-                                        component={CustomSelect}
-                                        placeholder="Select multi languages..."
-                                        isMulti={true}
-                                      />
-                                    </div>
-                                  </Grid>
-                                )}
-
                                 <Grid item lg={6} md={6} sm={12} xs={12}>
                                   <div
                                     className="form-group"
@@ -400,7 +378,27 @@ const Mint = () => {
                                     />
                                   </div>
                                 </Grid>
-
+                                {vendors && (
+                                  <Grid item lg={12} md={12} sm={12} xs={12}>
+                                    <div
+                                      className="form-group"
+                                      style={{ marginLeft: 10, marginTop: 10 }}
+                                    >
+                                      <label for="title" className="my-2">
+                                        Assign Vendors{" "}
+                                        <span className="text-danger">*</span>
+                                      </label>
+                                      <Field
+                                        className="custom-select"
+                                        name="selectedVendors"
+                                        options={vendors}
+                                        component={CustomSelect}
+                                        placeholder="Select multi languages..."
+                                        isMulti={true}
+                                      />
+                                    </div>
+                                  </Grid>
+                                )}
                                 <Grid item lg={12} md={12} sm={12} xs={12}>
                                   <div
                                     className="form-group"

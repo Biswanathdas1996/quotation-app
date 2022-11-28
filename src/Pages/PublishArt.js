@@ -9,8 +9,8 @@ import CardMedia from "@mui/material/CardMedia";
 import HeaderWrapper from "../components/shared/BackgroundUI";
 import HeaderUI from "../components/shared/HeaderUI";
 
-import NftFreagments from "../assets/images/5543383_watermarknone.jpg";
-import SingleNFT from "../assets/images/blog2.jpeg";
+import NftFreagments from "../assets/images/cbb8dae5ed3be1f50130784b2eda3b34a4c77249.png";
+import SingleNFT from "../assets/images/pdf.jpg";
 
 const Mint = () => {
   let history = useNavigate();
@@ -33,7 +33,7 @@ const Mint = () => {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Create Single NFT
+                Create Contract
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Lizards are a widespread group of squamate reptiles, with over
@@ -70,7 +70,7 @@ const Mint = () => {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Create Fractional NFT
+                Vendor Registration
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Lizards are a widespread group of squamate reptiles, with over
@@ -92,7 +92,7 @@ const Mint = () => {
                   borderRadius: 12,
                 }}
               >
-                Create Now
+                Register Now
               </Button>
               <small>*Work in progress</small>
             </CardActions>

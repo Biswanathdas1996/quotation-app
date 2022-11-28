@@ -9,7 +9,11 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import Button from "@mui/material/Button";
 import { _fetch } from "../../CONTRACT-ABI/connect";
 
-export default function MediaControlCard({ image, nftData }) {
+import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import CancelIcon from "@mui/icons-material/Cancel";
+
+export default function MediaControlCard({ image, nftData, ifOwner }) {
   const [vendor, setVendor] = React.useState(null);
   React.useEffect(() => {
     getVendorData();
@@ -86,6 +90,49 @@ export default function MediaControlCard({ image, nftData }) {
           </Typography>
         </CardContent>
         <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
+          {ifOwner && (
+            <>
+              <Button
+                variant="contained"
+                color="success"
+                size="small"
+                sx={{
+                  marginX: "15px",
+                  marginBottom: "15px",
+                }}
+                style={{
+                  border: "2px solid #2e7d32",
+                  fontSize: 10,
+                  fontWeight: "bold",
+                  padding: 8,
+                  width: 100,
+                }}
+                startIcon={<VerifiedIcon />}
+              >
+                Accept
+              </Button>
+              <Button
+                variant="contained"
+                color="error"
+                size="small"
+                sx={{
+                  marginX: "15px",
+                  marginBottom: "15px",
+                }}
+                style={{
+                  border: "2px solid red",
+                  fontSize: 10,
+                  fontWeight: "bold",
+                  padding: 8,
+                  width: 100,
+                }}
+                startIcon={<CancelIcon />}
+              >
+                Reject
+              </Button>
+            </>
+          )}
+
           <a href={nftData?.file} target="_blank" rel="noreferrer" download>
             <Button
               variant="contained"
@@ -101,6 +148,7 @@ export default function MediaControlCard({ image, nftData }) {
                 padding: 8,
                 width: 100,
               }}
+              startIcon={<DownloadForOfflineIcon />}
             >
               Download
             </Button>

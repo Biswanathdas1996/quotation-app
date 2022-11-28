@@ -5,7 +5,7 @@ import NoData from "../shared/NoData";
 import ListCard from "../shared/ListCard";
 import PDF_ICON from "../../assets/images/pdf.jpg";
 
-const ListOfQuote = ({ nftData }) => {
+const ListOfQuote = ({ nftData, ifOwner }) => {
   console.log("---nftData--->>>>>>>", nftData?.quotations);
 
   return (
@@ -20,7 +20,7 @@ const ListOfQuote = ({ nftData }) => {
       {nftData?.quotations.length > 0 ? (
         nftData?.quotations?.map((item) => (
           <Grid item xs={12} sm={12} md={12} lg={12} style={{ marginTop: 20 }}>
-            <ListCard image={PDF_ICON} nftData={item} />
+            <ListCard image={PDF_ICON} nftData={item} ifOwner={ifOwner} />
           </Grid>
         ))
       ) : (

@@ -18,6 +18,7 @@ import { get_url_extension, allowableVideoFormat } from "../../utils/fileInfo";
 import imgNotFound from "../../assets/images/default-placeholder.png";
 import { ConfigContext } from "../../App";
 import Button from "@mui/material/Button";
+import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 
 const DetailsHead = [
   "Contract Address:",
@@ -64,6 +65,7 @@ export default function LeftConrent({ nftData, tokenId, ContractAddress }) {
               width: 200,
               margin: 30,
             }}
+            startIcon={<DownloadForOfflineIcon />}
           >
             Download Contract
           </Button>
@@ -120,19 +122,27 @@ export default function LeftConrent({ nftData, tokenId, ContractAddress }) {
               </Link>
             </Tooltip>
             <Tooltip title="Author Name">
-              <Typography
-                variant="body2"
-                paragraph
-                item
-                fontWeight="600"
-                sx={{
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  width: "11rem",
-                }}
+              <Link
+                href={`${networkURL(
+                  configs
+                )}/token/${ContractAddress}?a=${tokenId}`}
+                target="_blank"
+                sx={{ textDecoration: "none" }}
               >
-                #{tokenId}
-              </Typography>
+                <Typography
+                  variant="body2"
+                  paragraph
+                  item
+                  fontWeight="600"
+                  sx={{
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    width: "11rem",
+                  }}
+                >
+                  #{tokenId}
+                </Typography>
+              </Link>
             </Tooltip>
             <Typography variant="body2" paragraph item fontWeight="600">
               ERC-721

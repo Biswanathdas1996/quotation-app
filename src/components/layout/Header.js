@@ -17,36 +17,64 @@ import { useNavigate } from "react-router-dom";
 import PwcLogo from "../../assets/images/nft.png";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { _fetch } from "../../CONTRACT-ABI/connect";
+import { _fetch, _account } from "../../CONTRACT-ABI/connect";
 
+const pageList = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  // {
+  //   label: "My profile",
+  //   href: vendors ? "/vendor" : "/profile",
+  // },
+  {
+    label: "How it works",
+    href: "/HowItWorks",
+  },
+];
 const Header = ({ icon, symbol }) => {
   // const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  const [vendors, setVendors] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  let history = useNavigate();
+  const [pages, setPages] = React.useState(pageList);
 
-  const pages = [
-    {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "My profile",
-      href: "/profile",
-    },
-    {
-      label: "How it works",
-      href: "/HowItWorks",
-    },
-  ];
+  let history = useNavigate();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const getAllVendor = async () => {
+    const vendors = await _fetch("getAllVendor");
+    const account = await _account();
+    console.log("------>vvv", vendors);
+    if (
+      vendors.find(
+        (data) => data?.walletAddress?.toString() === account?.toString()
+      )
+    ) {
+      setPages([
+        ...pageList,
+        {
+          label: "Vendor profile",
+          href: "/vendor",
+        },
+      ]);
+    } else {
+      setPages([
+        ...pageList,
+        {
+          label: "User profile",
+          href: "/profile",
+        },
+      ]);
+    }
   };
+
+  React.useEffect(() => {
+    getAllVendor();
+  }, []);
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);

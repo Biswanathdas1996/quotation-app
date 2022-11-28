@@ -16,6 +16,7 @@ import { getIcon } from "../../utils/currencyIcon";
 import { getSymbol } from "../../utils/currencySymbol";
 import imgNotFound from "../../assets/images/default-placeholder.png";
 import CardActions from "@mui/material/CardActions";
+import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 
 export default function NFTCard({ tokenId, reload = () => null }) {
   const [nftData, setNftData] = useState(null);
@@ -182,6 +183,7 @@ export default function NFTCard({ tokenId, reload = () => null }) {
                   padding: 8,
                   width: 100,
                 }}
+                startIcon={<DownloadForOfflineIcon />}
               >
                 Download
               </Button>

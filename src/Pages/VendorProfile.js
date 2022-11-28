@@ -35,7 +35,7 @@ const ProfilePage = () => {
             component="h6"
             sx={{ color: "#FFFFFF", pt: 6 }}
           >
-            Vendor
+            Vendor Profile
           </Typography>
         </Container>
       </div>
