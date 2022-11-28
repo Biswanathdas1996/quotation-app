@@ -7,13 +7,20 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import Button from "@mui/material/Button";
-import { _fetch } from "../../CONTRACT-ABI/connect";
-
+import { _fetch, _transction } from "../../CONTRACT-ABI/connect";
+import Chip from "@mui/material/Chip";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import CancelIcon from "@mui/icons-material/Cancel";
 
-export default function MediaControlCard({ image, nftData, ifOwner }) {
+export default function MediaControlCard({
+  image,
+  nftData,
+  ifOwner,
+  acceptQuote,
+  rejectQuote,
+  index,
+}) {
   const [vendor, setVendor] = React.useState(null);
   React.useEffect(() => {
     getVendorData();
@@ -23,9 +30,8 @@ export default function MediaControlCard({ image, nftData, ifOwner }) {
     const getAllToken =
       nftData?.vendor && (await _fetch("getVendorData", nftData?.vendor));
     setVendor(getAllToken);
-    console.log("=========>", getAllToken);
   };
-
+  console.log("====nftData=====>", nftData);
   return (
     <Card sx={{ display: "flex" }}>
       <Box
@@ -90,10 +96,10 @@ export default function MediaControlCard({ image, nftData, ifOwner }) {
           </Typography>
         </CardContent>
         <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
-          {ifOwner && (
+          {ifOwner && !("accepted" in nftData) && (
             <>
               <Button
-                variant="contained"
+                variant="outlined"
                 color="success"
                 size="small"
                 sx={{
@@ -108,11 +114,12 @@ export default function MediaControlCard({ image, nftData, ifOwner }) {
                   width: 100,
                 }}
                 startIcon={<VerifiedIcon />}
+                onClick={() => acceptQuote(index)}
               >
                 Accept
               </Button>
               <Button
-                variant="contained"
+                variant="outlined"
                 color="error"
                 size="small"
                 sx={{
@@ -127,6 +134,7 @@ export default function MediaControlCard({ image, nftData, ifOwner }) {
                   width: 100,
                 }}
                 startIcon={<CancelIcon />}
+                onClick={() => rejectQuote(index)}
               >
                 Reject
               </Button>
@@ -153,6 +161,29 @@ export default function MediaControlCard({ image, nftData, ifOwner }) {
               Download
             </Button>
           </a>
+
+          {nftData?.accepted && (
+            <>
+              <Chip
+                label="Accepted"
+                color="success"
+                variant="contained"
+                icon={<VerifiedIcon />}
+                style={{ marginBottom: 10 }}
+              />
+            </>
+          )}
+          {nftData?.accepted === false && (
+            <>
+              <Chip
+                label="Rejected"
+                color="error"
+                variant="contained"
+                icon={<CancelIcon />}
+                style={{ marginBottom: 10 }}
+              />
+            </>
+          )}
         </Box>
       </Box>
       <CardMedia

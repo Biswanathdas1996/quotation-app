@@ -206,7 +206,11 @@ const RightContent = ({
       </Box>
 
       <Box sx={{ width: "100%", typography: "body1" }}>
-        <ListOfQuote nftData={nftData} ifOwner={owner === account} />
+        <ListOfQuote
+          nftData={nftData}
+          ifOwner={owner === account}
+          tokenId={tokenId}
+        />
       </Box>
       {owner !== account && (
         <Box sx={{ width: "100%", typography: "body1" }}>
